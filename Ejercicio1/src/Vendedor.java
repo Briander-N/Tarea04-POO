@@ -11,6 +11,36 @@ public class Vendedor {
         this.montoVendido = montoVendido;
         this.porcentajeComision = porcentajeComision;
         this.cumplimiento = cumplimiento;
+    }
 
+    public double getMontoVendido() {
+        return montoVendido;
+    }
+
+    public double getPorcentajeComision() {
+        return porcentajeComision;
+    }
+
+    public double getCumplimiento() {
+        return cumplimiento;
+    }
+
+    public double calcularComision() {
+        return getMontoVendido() * (getPorcentajeComision() / 100);
+    }
+
+    public double calcularIngresoTotal(){
+        double total = getMontoVendido() + calcularComision();
+        return total;
+    }
+
+    public String estadoCumplimiento(){
+        if(getCumplimiento() >= 90){
+            return "Exelente";
+        }else if(getCumplimiento() >= 70){
+            return "Acetable";
+        }else{
+            return "Bajo";
+        }
     }
 }
